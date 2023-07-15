@@ -5,8 +5,8 @@ import re
 # open file with termination .aut
 
 
-def ends_with_dot_aut(s: str) -> bool:
-    return s.endswith(".aut")
+def ends_with_dot_aut(file_name: str) -> bool:
+    return file_name.endswith(".aut")
 
 def print_statement(line: str, variables: dict) -> None:
     line = line[2:].strip()
@@ -76,8 +76,8 @@ def readFile(file: str) -> None:
                 line = comment_prefix
             else:
                 line = line.lstrip()
-            print("line: ", line)
-            print("Abstraction Level: ", abstraction_level)
+            # print("line: ", line)
+            # print("Abstraction Level: ", abstraction_level)
 
 
             if line.startswith("pr"):
