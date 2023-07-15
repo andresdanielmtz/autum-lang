@@ -24,10 +24,9 @@ pr x
 pr y 
 pr z
 if y > x
-    if y < z
+    if y > z
         pr "y es el mayor"
-    else
-        pr "lmao"
+
 ```
 
 ### Output
@@ -36,4 +35,5 @@ if y > x
 10
 40
 30
+"y es el mayor"
 ```
