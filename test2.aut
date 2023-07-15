@@ -1,0 +1,14 @@
+pr "hello, world" 
+x=10
+z=30
+y=40
+// comentario
+// lmao
+pr x 
+pr y 
+pr z
+if y > x
+    if y < z
+        pr "y es el mayor"
+    else
+        pr "lmao"
