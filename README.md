@@ -1,5 +1,6 @@
 # The Autum Programming Language
 ### A simple, easy to use, and powerful programming language.
+_(Not meant to be taken seriously)_
 
 ## Features 
 - Variables
@@ -9,8 +10,12 @@
 
 ## How to use
 1. Clone the repository
-2. Fill "test2.aut" with your own code
-3. Run the command `python3 main.py test2.aut` in the terminal
+2. Fill the `example/code_example.aut` file with your own code.
+3. Run the command `python3 main.py` in the terminal. 
+
+You can also use your own file by modifying the `FILENAME` variable in the `main.py` file and running 
+
+```python3 main.py```
 
 ## Example
 ```
