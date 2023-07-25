@@ -1,5 +1,3 @@
-import os
-import ast
 import re
 
 # open file with termination .aut
@@ -104,5 +102,3 @@ def readFile(file: str) -> None:
             else:
                 print(f"Invalid Syntax: {line}")
 
-
-readFile(file="test2.aut")
