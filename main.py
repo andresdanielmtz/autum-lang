@@ -2,7 +2,7 @@ import parse as prs
 import logging as log
 
 if __name__ == "__main__":
-    FILENAME = "code_example.aut"
+    FILENAME = "code_exampleee.aut"
 
     log.basicConfig(filename="file.log", encoding="utf-8", level=log.DEBUG)
     log.info("Starting Normal Procedure")

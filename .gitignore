@@ -1,0 +1,14 @@
+# Main file and directories 
+__pycache__
+file.log
+
+# Editor directories 
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
