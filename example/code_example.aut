@@ -7,8 +7,10 @@ y=40
 pr x 
 pr y 
 pr z
-if x < 30
+if x > 30
     pr "x es mayor a 30"
+else
+    pr "no lo es"
 if y > x
     if y > z
         pr "y es el mayor"

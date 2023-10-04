@@ -1,8 +1,3 @@
-import re
-
-# open file with termination .aut
-
-
 def ends_with_dot_aut(file_name: str) -> bool:
     return file_name.endswith(".aut")
 
@@ -15,6 +10,35 @@ def print_statement(line: str, variables: dict) -> None:
         print(line[1:-1])  # Print the string without quotes
     else:
         print("Variable(s) not found in dictionary")
+
+
+def handle_if_statement(line: str, variables: dict) -> bool:
+    return parse_if_statement(line, variables)
+
+
+def handle_else_statement(line: str, variables: dict) -> None:
+    if not parse_if_statement(line, variables):
+        return
+
+
+def handle_assignment(line: str, variables: dict) -> None:
+    key, val = line.split("=")
+    variables[key.strip()] = val.strip()
+
+
+def handle_line(line: str, variables: dict) -> None:
+    line = line.lstrip()
+    if line.startswith("pr"):
+        print_statement(line, variables)
+    elif line.startswith("if"):
+        if handle_if_statement(line, variables):
+            return
+    elif line.startswith("else"):
+        handle_else_statement(line, variables)
+    elif "=" in line:
+        handle_assignment(line, variables)
+    else:
+        print(f"Invalid Syntax: {line}")
 
 
 def parse_if_statement(line: str, variables: dict) -> bool:
@@ -32,23 +56,11 @@ def parse_if_statement(line: str, variables: dict) -> bool:
                     y = variables[rhs]
                 else:
                     y = rhs  # If RHS is not a variable, use the direct value
-                evaluation = eval(f"{x} {final_operator} {y}")
 
-                return evaluation  # Evaluates the entire operation
-                
-
-            else:
-                print(f"\nLHS: {lhs} \nFINAL_OPERATOR: {final_operator} \nRHS: {rhs}")
-                print("Variable(s) not found in dictionary")
-                return False
+                return eval(f"{x} {final_operator} {y}")
 
     print("Invalid if statement")
     return False
-
-
-
-def check_else(abstraction_level: int) -> bool:
-    return abstraction_level == -1
 
 
 def readFile(file: str) -> None:
@@ -56,39 +68,11 @@ def readFile(file: str) -> None:
         return
 
     var_dict = {}
-    abstraction_level = 0
     comment_prefix = "//"
 
     with open(file, "r") as f:
         lines = f.readlines()
         for line in lines:
-            if ("\t" in line) or abstraction_level < 0:
-                line = comment_prefix
-            else:
-                line = line.lstrip()
-            # print("line: ", line)
-            # print("Abstraction Level: ", abstraction_level)
-
-            if line.startswith("pr"):
-                print_statement(line, var_dict)
-
-            elif line.startswith("if"):
-                if parse_if_statement(line, var_dict):
-                    abstraction_level = 1
-                else:
-                    abstraction_level = -1
-
-            elif line.startswith("else") and abstraction_level == -1:
-                if not parse_if_statement(line, var_dict):
-                    abstraction_level = 1
-                else:
-                    abstraction_level = -1
-
-            elif line.startswith(comment_prefix):
+            if line.startswith(comment_prefix):
                 continue
-
-            elif "=" in line:
-                key, val = line.split("=")
-                var_dict[key.strip()] = val.strip()
-            else:
-                print(f"Invalid Syntax: {line}")
+            handle_line(line, var_dict)

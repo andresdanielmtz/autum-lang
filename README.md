@@ -2,11 +2,15 @@
 ### A simple, easy to use, and powerful programming language.
 _(Not meant to be taken seriously)_
 
+
+
 ## Features 
 - Variables
 - Print statements
 - Comments 
-- If conditionals 
+- Basic If conditionals 
+    - Evaluation between two variables 
+    - Evaluation between a variable and a value
 
 ## How to use
 1. Clone the repository
@@ -36,9 +40,12 @@ if y > x
 
 ### Output
 ```
-"hello, world"
+hello, world
 10
 40
 30
-"y es el mayor"
+y es el mayor
 ```
+
+> This project was done during the summer of 2023. It was a fun project to do and I learned a lot about programming languages. I hope you enjoy it as much as I did.
+> There's no plans for further continuation, but I might. 
