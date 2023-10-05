@@ -65,7 +65,7 @@ def parse_if_statement(line: str, variables: dict) -> bool:
 
 def readFile(file: str) -> None:
     if not ends_with_dot_autum(file):
-        return
+        raise ValueError(f"File {file} does not have the expected .autum extension")
 
     var_dict = {}
     comment_prefix = "//"
