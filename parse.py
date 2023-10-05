@@ -1,5 +1,5 @@
-def ends_with_dot_aut(file_name: str) -> bool:
-    return file_name.endswith(".aut")
+def ends_with_dot_autum(file_name: str) -> bool:
+    return file_name.endswith(".autum")
 
 
 def print_statement(line: str, variables: dict) -> None:
@@ -64,7 +64,7 @@ def parse_if_statement(line: str, variables: dict) -> bool:
 
 
 def readFile(file: str) -> None:
-    if not ends_with_dot_aut(file):
+    if not ends_with_dot_autum(file):
         return
 
     var_dict = {}
